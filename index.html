@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Latest compiled and minified CSS -->
+    <script src="https://use.fontawesome.com/c058df4e2c.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="geelong-styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Start of pet form container -->
+    <div class="form-container">
+    <div class="card-header header-greyed">
+      <h3 class="form-header-h">Pet One - Details</h3>
+    </div>
+
+    <div class="pet-form">
+      <div id="accordion">
+        <!-- forn card 1 -->
+        <div class="card" id="cardOne">
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <button
+                id="questionOneBtn"
+                class="btn btn-link collapsed"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                <h5>Pet Type</h5>
+              </button>
+            </h5>
+          </div>
+          <div
+            id="collapseOne"
+            class="collapse in"
+            aria-labelledby="headingOne"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              <h3 class="form-heading">
+                What type of pet are you registering?
+              </h3>
+
+              <form class="panel-body" id="petTypeQuestionOne">
+                <label class="radio-inline radio-pet"
+                  ><input id="catRadio" type="radio" name="pet-type" value="1"/>Cat</label
+                >
+                <label class="radio-inline radio-pet-two"
+                  ><input id="dogRadio" type="radio" name="pet-type" value="2"/>Dog</label
+                >
+                <label class="radio-inline radio-pet-three"
+                  ><input type="radio" name="pet-type" value="3"/>Rabbit</label
+                >
+                <label class="radio-inline radio-pet-other"
+                  ><input
+                    id="radioPetOther"
+                    type="radio"
+                    name="pet-type"
+                    value="4"
+                  />Other</label
+                ><label class="radio-inline hidden"
+                  ><input type="radio" name=""
+                /></label>
+
+                <a
+                  class="btn btn-primary"
+                  id="otherAnimal"
+                  role="button"
+                  data-toggle="collapse"
+                  href="#collapseExample"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                </a>
+                <div class="collapse otherAnimal" id="collapseExample">
+                  <div class="well">
+                    <div class="form-group" id="petOtherFeild">
+                      <input
+                        type="text"
+                        placeholder="Pet Type"
+                        class="form-control"
+                        id="usr"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <br>
+              <button
+                type="button"
+                id="questionOneNextBtn"
+                class="btn btn-default form-btn next-btn-one greyed-out"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- form card 2 -->
+      <div class="card greyed-out" id="cardTwo">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button
+              id="questionTwoBtn"
+              class="btn btn-link collapsed"
+              data-toggle="collapse"
+              data-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              <h5>Pet Details</h5>
+            </button>
+          </h5>
+        </div>
+        <div
+          id="collapseTwo"
+          class="collapse"
+          aria-labelledby="headingTwo"
+          data-parent="#accordion"
+        ><br>
+          <div class="card-body pet-details">
+            <div class="form-group" >
+              <label for="example">Your<span class="pet-name-text-span"></span>'s Name:</label>
+              <input
+                type="text"
+                placeholder="Pet's Name"
+                class="form-control"
+                id="petName"
+                minlength="3"
+              />
+              
+              <br>
+              <div class="md-form md-outline input-with-post-icon datepicker">
+                <label for="example">Your <span class="pet-birthday-text-span"></span>'s Date Of Birth:</label>
+                <input placeholder="Select date" type="date" id="petBirthday" class="form-control">
+               <br>
+               <div>
+               <label for="example">Sex Of Your <span class="pet-sex-text-span"></span>:</label></div>
+               <label class="radio-inline radio-pet"
+                  ><input id="petSexMale" type="radio" name="optradio" />Male</label
+                >
+                <label class="radio-inline radio-pet-two"
+                  ><input id="petSexFemale" type="radio" name="optradio" />Female</label
+                >
+              
+              </div>
+            </div>
+            <button id="questionTwoNextBtn" type="button" class="btn btn-default form-btn next-btn-two greyed-out">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- form card 3 -->
+      <div class="card greyed-out" id="cardThree">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link collapsed"
+              id="questionThreeBtn"
+              data-toggle="collapse"
+              data-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              <h5>Pet Breed</h5>
+            </button>
+          </h5>
+        </div>
+        <div
+          id="collapseThree"
+          class="collapse"
+          aria-labelledby="headingThree"
+          data-parent="#accordion"
+        >
+          <div class="card-body ">
+<br>
+            <div class="pet-breed-card-body">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"><h5 id="pleaseSelectPetTextBntText">Please select your <span class="breed-list"></span>'s Breed <span class="caret"></span></h5>
+                </button>
+                <ul class="dropdown-menu " id="dogBreedList">
+                </ul>
+                <ul class="dropdown-menu " id="catBreedList">
+                </ul>
+              </div>
+              <br>
+              <br>
+
+        
+              
+              <div class="dropdown " >
+                <button id='petColourDropdown' class="btn btn-secondary dropdown-toggle greyed-out" type="button" data-toggle="dropdown"><h5 id="pleaseSelectPetColourTextBntText">select the best representation of your animals colour <span class="caret"></span></h5>
+                </button>
+                <ul class="dropdown-menu " id="petColorList">
+                </ul>
+              </div>
+            </div>
+            <br>
+            <br>
+            <button
+              type="button" id="questionThreeNextBtn"
+              class="btn btn-default form-btn next-btn-three greyed-out">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- forn card 4 -->
+    <div class="card greyed-out" id="cardFour">
+      <div class="card-header" id="headingFour">
+        <h5 class="mb-0">
+          <button
+            class="btn btn-link collapsed"
+            id="questionFourBtn"
+            data-toggle="collapse"
+            data-target="#collapseFour"
+            aria-expanded="false"
+            aria-controls="collapseFour"
+          >
+            <h5>Pet Exemptions</h5>
+          </button>
+        </h5>
+      </div>
+      <div
+        id="collapseFour"
+        class="collapse"
+        aria-labelledby="headingFour"
+        data-parent="#accordion"
+      >
+        <div class="card-body">
+          <h4 class="form-heading">
+            Has the pet been desexed or do you have a desexing exemption letter
+            from your vet?
+          </h4>
+          <p class="no-bottom-margin">
+            A veterinarian may provide a letter of exemption for pets that are
+            too young to be desexed at time of registration.
+          </p>
+          <div class="card-body">
+            <label class="radio-inline desexed-yes" 
+              ><input id="desexedYes" type="radio" name="desexed" />Yes</label
+            >
+            <label class="radio-inline desexed-no"
+              ><input id="desexedNo" type="radio" name="desexed" />No</label
+            >
+          </div>          
+        </div>
+        
+        <a class="btn btn-primary hidden"
+                  id="usedForBreeding"
+                  role="button"
+                  data-toggle="collapse"
+                  href="#collapseUsedForBreeding"
+                  aria-expanded="false"
+                  aria-controls="ollapseUsedForBreeding">
+        </a>
+          <div class="collapse otherAnimal" id="collapseUsedForBreeding">
+            
+              <div class="card-body" id="">
+                <br>
+                <h4 class="form-heading">
+                  Is the pet used for breeding?
+                </h4>
+                <div class="panel-body ">
+                  <label class="radio-inline breeding-yes"
+                  ><input id="showBreedingAlert" type="radio" name="breeding" />Yes</label
+                >
+                <label class="radio-inline breeding-no"
+                  ><input id="hideBreedingAlert" type="radio" name="breeding" />No</label
+                >
+                </div>  
+              </div>
+            
+          </div>        
+
+<a class="btn btn-primary hidden"
+                  id="breedingAlert"
+                  role="button"
+                  data-toggle="collapse"
+                  href="#collapseBreedingAlert"
+                  aria-expanded="false"
+                  aria-controls="collapseUsedForBreeding">
+        </a>
+          <div class="collapse otherAnimal" id="collapseBreedingAlert">
+            <!-- <div class="well"> -->
+              <div class="form-group" id="breedingAlertMessage">
+                <br>
+                <div class="alert alert-warning" style="margin-top: 60px; position: relative; padding: 15px 15px 15px 45px;">
+                  <span class="fa fa-warning" style="font-size: 25px; margin: 15px 15px 0 -15px ;"></span>
+                  <p><strong>Please note:</strong> You will be required to supply your pet breeding certificate to complete this pet registration.</p>
+                </div>
+              </div>
+            <!-- </div> -->
+          </div>  
+
+          <div class="card-body">
+            <br>
+              <h4 class="form-heading">Has the pet been microchipped?</h4>
+              <p class="no-bottom-margin">
+              If your pet has not been microchipped it can only be registered
+              with an exemption from your vet.
+              </p>
+            <div class="panel-body">
+              <label class="radio-inline "
+                ><input id="microYes" type="radio" name="microchipped" />Yes</label
+              >
+              <label class="radio-inline "
+                ><input id="microNo" type="radio" name="microchipped" />No</label
+              >   
+            </div>
+          </div>
+
+
+
+      <br>
+
+      
+  </div> 
+</div>
+<button type="button" class="btn btn-default form-btn next-page-btn greyed-out">Next - Customer Details</button>
+    <!-- end of pet form container -->
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

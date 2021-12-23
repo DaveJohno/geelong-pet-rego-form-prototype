@@ -1,0 +1,145 @@
+body {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h3,
+h4,
+h5,
+p {
+  text-transform: capitalize;
+  margin: 0px;
+  padding: 0px;
+}
+
+.panel-expand,
+.panel,
+.card,
+.card-header,
+.panel-body,
+.card-body {
+  margin: 0 auto;
+  width: 90%;
+  border: 0px solid;
+  background-color: #e1e2e4;
+  padding-bottom: 0px;
+}
+.form-group {
+  background-color: #e1e2e4;
+}
+.panel-body {
+  margin: 0px 5% 0px 5%;
+}
+
+.hidden {
+  display: none;
+}
+
+.greyed-out {
+  opacity: 33%;
+  pointer-events: none;
+}
+
+.greyed-fifty {
+  opacity: 50%;
+}
+
+.header-greyed {
+  background-color: RGBA(225, 226, 228, 0.5);
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.form-heading,
+p {
+  margin: 0px 5% 0px 5%;
+}
+.radio-inline,
+.form-group,
+p {
+  margin-bottom: 20px;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0px;
+}
+
+.form-btn {
+  margin: 0 5% 10px 5%;
+}
+
+#otherAnimal {
+  display: none;
+}
+
+.well {
+  padding: 0px;
+  border: none;
+}
+
+.form-header-h {
+  margin: 0;
+  margin-left: 5%;
+}
+
+.btn-link {
+  padding-left: 0px;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border: 1px solid #dece9b;
+}
+.alert {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+#breedingAlertMessage {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin: 0 5% 0 5%;
+  margin-top: -60px;
+}
+.pet-details {
+  margin: 0 10% 0 10%;
+  width: 80%;
+}
+.next-btn-two {
+  margin-left: 0px;
+}
+
+.next-page-btn {
+  margin-top: 5px;
+  float: right;
+}
+
+.pet-breed-card-body {
+  margin: 0 5% 0 5%;
+}
+
+.dropdown-toggle,
+.dropdown-menu {
+  width: 100%;
+}
+
+#dogBreedList > li:hover,
+#catBreedList > li:hover {
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
+}
