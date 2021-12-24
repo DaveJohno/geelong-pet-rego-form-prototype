@@ -58,18 +58,18 @@ function showPetOther() {
 //find the pet type text feild
 let otherPetText = document.getElementById(`otherAnimal`);
 
-const radioPetOther = document
-  .getElementById("radioPetOther")
-  .addEventListener(`click`, showPetOther);
+// const radioPetOther = document
+//   .getElementById("radioPetOther")
+//   .addEventListener(`click`, showPetOther);
 const radioPet = document
   .querySelector(`.radio-pet`)
   .addEventListener(`click`, hidePetOther);
 const radioPetTwo = document
   .querySelector(`.radio-pet-two`)
   .addEventListener(`click`, hidePetOther);
-const radioPetThree = document
-  .querySelector(`.radio-pet-three`)
-  .addEventListener(`click`, hidePetOther);
+// const radioPetThree = document
+//   .querySelector(`.radio-pet-three`)
+//   .addEventListener(`click`, hidePetOther);
 
 //get and make first question radio buttons are checked
 const petTypeCat = document.getElementById("catRadio");
