@@ -131,7 +131,7 @@
         ><br>
           <div class="card-body pet-details">
             <div class="form-group" >
-              <label for="example">Your<span class="pet-name-text-span"></span>'s Name:</label>
+              <label for="example">Your <span class="pet-name-text-span"></span>'s Name:</label>
               <input
                 type="text"
                 placeholder="Pet's Name"
@@ -142,11 +142,11 @@
               
               <br>
               <div class="md-form md-outline input-with-post-icon datepicker">
-                <label for="example">Your <span class="pet-birthday-text-span"></span>'s Date Of Birth:</label>
+                <label for="example"><span class="pet-birthday-text-span"></span>'s Date Of Birth:</label>
                 <input placeholder="Select date" type="date" id="petBirthday" class="form-control">
                <br>
                <div>
-               <label for="example">Sex Of Your <span class="pet-sex-text-span"></span>:</label></div>
+               <label for="example"><span class="pet-sex-text-span"></span>'s gender':</label></div>
                <label class="radio-inline radio-pet"
                   ><input id="petSexMale" type="radio" name="optradio" />Male</label
                 >
@@ -189,7 +189,7 @@
 <br>
             <div class="pet-breed-card-body">
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"><h5 id="pleaseSelectPetTextBntText">Please select your <span class="breed-list"></span>'s Breed <span class="caret"></span></h5>
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"><h5 id="pleaseSelectPetTextBntText">Please select <span class="breed-list"></span>'s Breed <span class="caret"></span></h5>
                 </button>
                 <ul class="dropdown-menu " id="dogBreedList">
                 </ul>
@@ -202,7 +202,7 @@
         
               
               <div class="dropdown " >
-                <button id='petColourDropdown' class="btn btn-secondary dropdown-toggle greyed-out" type="button" data-toggle="dropdown"><h5 id="pleaseSelectPetColourTextBntText">select the best representation of your animals colour <span class="caret"></span></h5>
+                <button id='petColourDropdown' class="btn btn-secondary dropdown-toggle greyed-out" type="button" data-toggle="dropdown"><h5 id="pleaseSelectPetColourTextBntText">select the best representation of <span class="colour-list-span"></span></span>'s colour<span class="caret"></span></h5>
                 </button>
                 <ul class="dropdown-menu " id="petColorList">
                 </ul>
@@ -210,9 +210,24 @@
             </div>
             <br>
             <br>
+
+              <div class="card-body" 
+              id="uploadPictureOfPet">
+                
+                <label for="formFileMultiple" id="" class="form-label "><h4>Attach a Picture of  <span class="petNameDesexedText"></span> (Optional):</h4></label></h4>
+                <input class="form-control " type="file" id="" multiple />
+              </div>
+
+
+
+
+
+            <br>
+            <br>
             <button
               type="button" id="questionThreeNextBtn"
               class="btn btn-default form-btn next-btn-three greyed-out">Next</button>
+              
           </div>
         </div>
       </div>
@@ -242,23 +257,25 @@
       >
         <div class="card-body">
           <h4 class="form-heading">
-            Has the pet been desexed or do you have a desexing exemption letter
-            from your vet?
+            Has <span class="petNameHasDesexedText"></span> been desexed?
           </h4>
           <p class="no-bottom-margin">
             A veterinarian may provide a letter of exemption for pets that are
             too young to be desexed at time of registration.
           </p>
+          <br>
           <div class="card-body">
             <label class="radio-inline desexed-yes" 
               ><input id="desexedYes" type="radio" name="desexed" />Yes</label
             >
             <label class="radio-inline desexed-no"
-              ><input id="desexedNo" type="radio" name="desexed" />No</label
+              ><input id="desexedNo" type="radio" name="desexed" />No</label>
+
+              <label class="radio-inline desexed-no"
+              ><input id="desexedNoButExempt" type="radio" name="desexed" />No - I Have An Exemption Letter</label
             >
           </div>          
         </div>
-        
         <a class="btn btn-primary hidden"
                   id="usedForBreeding"
                   role="button"
@@ -267,23 +284,37 @@
                   aria-expanded="false"
                   aria-controls="ollapseUsedForBreeding">
         </a>
-          <div class="collapse otherAnimal" id="collapseUsedForBreeding">
-            
-              <div class="card-body" id="">
-                <br>
-                <h4 class="form-heading">
-                  Is the pet used for breeding?
-                </h4>
-                <div class="panel-body ">
-                  <label class="radio-inline breeding-yes"
-                  ><input id="showBreedingAlert" type="radio" name="breeding" />Yes</label
-                >
-                <label class="radio-inline breeding-no"
-                  ><input id="hideBreedingAlert" type="radio" name="breeding" />No</label
-                >
-                </div>  
+          <div class="collapse otherAnimal" id="collapseUsedForBreeding"> 
+            <br>
+
+            <div class="card-body">
+              <div class="card-body hidden" id="uploadDesexedFile">
+                
+                <label for="formFileMultiple" id="" class="form-label "><h4>Attach <span class="petNameDesexedCertText"></span>'s desex certificate from your vet:</h4></label>
+                <input class="form-control " type="file" id="" multiple />
               </div>
-            
+              <div class="card-body hidden" id="uploadExemptFile">
+                
+                <label for="formFileMultiple" id="" class="form-label "><h4>Attach <span class="petNameExemptText"></span>'s exemption letter from your vet:</h4></label>
+                <input class="form-control " type="file" id="" multiple />
+              </div>
+            </div>
+
+
+            <div class="card-body hidden" id="isPetUsedBreeding">
+              <h4 class="form-heading">
+                Is the pet used for breeding?
+              </h4>
+              <div class="card-body ">
+                <label class="radio-inline breeding-yes"
+                ><input id="showBreedingAlert" type="radio" name="breeding" />Yes</label
+              >
+              <label class="radio-inline breeding-no"
+                ><input id="hideBreedingAlert" type="radio" name="breeding" />No</label
+              >
+              </div>  
+            </div>
+            <br>
           </div>        
 
 <a class="btn btn-primary hidden"
@@ -300,7 +331,7 @@
                 <br>
                 <div class="alert alert-warning" style="margin-top: 60px; position: relative; padding: 15px 15px 15px 45px;">
                   <span class="fa fa-warning" style="font-size: 25px; margin: 15px 15px 0 -15px ;"></span>
-                  <p><strong>Please note:</strong> You will be required to supply your pet breeding certificate to complete this pet registration.</p>
+                  <p><strong>Please note:</strong> You will be required to supply your pet's breeding certificate to complete this pet registration.</p>
                 </div>
               </div>
             <!-- </div> -->
@@ -308,7 +339,7 @@
 
           <div class="card-body">
             <br>
-              <h4 class="form-heading">Has the pet been microchipped?</h4>
+              <h4 class="form-heading">Has <span class="petMicrochippedText"></span> been microchipped?</h4>
               <p class="no-bottom-margin">
               If your pet has not been microchipped it can only be registered
               with an exemption from your vet.
@@ -325,9 +356,43 @@
 
 
 
-      <br>
 
-      
+
+      <a class="btn btn-primary hidden"
+                  id="microchipNumber"
+                  role="button"
+                  data-toggle="collapse"
+                  href="#collapseMicroNumber"
+                  aria-expanded="false"
+                  aria-controls="">
+        </a>
+        <div class="card-body">
+          <div class="collapse otherAnimal" id="collapseMicroNumber">
+              <div class="card-body" id="">
+                <label for="formFileMultiple" id="" class="form-label "><h4>Enter Your 15 Digit Microchip number:</h4></label>
+                <input class="" id="numberField" type="number" minlength="15" id="" placeholder="123451234512345"/>
+              </div>
+              <br>
+          </div>  
+        </div>
+
+      <a class="btn btn-primary hidden"
+                  id="microchipExemptionFile"
+                  role="button"
+                  data-toggle="collapse"
+                  href="#collapseMicroExemption"
+                  aria-expanded="false"
+                  aria-controls="">
+        </a>
+        <div class="card-body">
+          <div class="collapse otherAnimal" id="collapseMicroExemption">
+              <div class="card-body" id="">
+                <label for="formFileMultiple" id="" class="form-label "><h4>Attach the letter from your vet that authorises exemption from microchipping:</h4></label>
+                <input class="form-control" type="file" id="" multiple />
+              </div>
+              <br>
+          </div>  
+        </div>
   </div> 
 </div>
 <button type="button" class="btn btn-default form-btn next-page-btn greyed-out">Next - Customer Details</button>

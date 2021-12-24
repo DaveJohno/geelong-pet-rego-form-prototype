@@ -2,18 +2,40 @@
 const appendDogBreedList = document.getElementById("dogBreedList");
 const appendCatBreedList = document.getElementById("catBreedList");
 
+//change span text to animal type
+//type cat
+const cat = "Cat";
+const dog = "Dog";
+let petName = "";
+
 function catTextSpan() {
-  document.querySelector(".breed-list").innerHTML = "Cat";
-  document.querySelector(".pet-name-text-span").innerHTML = "Cat";
-  document.querySelector(".pet-birthday-text-span").innerHTML = "Cat";
-  document.querySelector(".pet-sex-text-span").innerHTML = "Cat";
+  document.querySelector(".breed-list").innerHTML = cat;
+  document.querySelector(".pet-name-text-span").innerHTML = cat;
+  document.querySelector(".colour-list-span").innerHTML = cat;
+  document.querySelector(".pet-birthday-text-span").innerHTML = cat;
+  document.querySelector(".pet-sex-text-span").innerHTML = cat;
 }
 
+//type Dog
 function dogTextSpan() {
-  document.querySelector(".breed-list").innerHTML = "Dog";
-  document.querySelector(".pet-name-text-span").innerHTML = "Dog";
-  document.querySelector(".pet-birthday-text-span").innerHTML = "Dog";
-  document.querySelector(".pet-sex-text-span").innerHTML = "Dog";
+  document.querySelector(".breed-list").innerHTML = dog;
+  document.querySelector(".pet-name-text-span").innerHTML = dog;
+  document.querySelector(".pet-birthday-text-span").innerHTML = dog;
+  document.querySelector(".pet-sex-text-span").innerHTML = dog;
+  document.querySelector(".colour-list-span").innerHTML = dog;
+}
+
+//change animal type span text to animal's name
+function petNameTextSpan() {
+  document.querySelector(".breed-list").innerHTML = pet;
+  document.querySelector(".pet-birthday-text-span").innerHTML = pet;
+  document.querySelector(".pet-sex-text-span").innerHTML = pet;
+  document.querySelector(".colour-list-span").innerHTML = pet;
+  document.querySelector(".petNameDesexedText").innerHTML = pet;
+  document.querySelector(".petMicrochippedText").innerHTML = pet;
+  document.querySelector(".petNameHasDesexedText").innerHTML = pet;
+  document.querySelector(".petNameExemptText").innerHTML = pet;
+  document.querySelector(".petNameDesexedCertText").innerHTML = pet;
 }
 
 //show/hide the other type text field
@@ -88,16 +110,22 @@ const nextBtnOne = document
 
 //Question two
 //get the name, birthday, sex fields fields and next buuton
-const petName = document.getElementById(`petName`);
+const petNameField = document.getElementById(`petName`);
 let petBirthday = document.getElementById(`petBirthday`);
 const petMale = document.getElementById(`petSexMale`);
 const petFemale = document.getElementById(`petSexFemale`);
 const questionTwoNextBtn = document.getElementById("questionTwoNextBtn");
 
 //check if there is a value in the name field
-const nameCheck = petName.addEventListener(`change`, function () {
-  petName.value.length;
+const nameCheck = petNameField.addEventListener(`change`, function () {
+  petNameField.value.length;
   questionTwoNextBtnActivate();
+});
+
+let changePetname = petNameField.addEventListener(`change`, function () {
+  console.log(petNameField.value);
+  pet = petNameField.value;
+  petNameTextSpan();
 });
 
 //check if there is a pet birthdate
@@ -109,7 +137,6 @@ petMale.addEventListener(`click`, function () {
   petMale.checked === true;
   petFemale.checked === false;
   questionTwoNextBtnActivate();
-  console.log(`change pet male to ` + petMale.checked);
 });
 
 petFemale.addEventListener(`click`, function () {
@@ -121,7 +148,7 @@ petFemale.addEventListener(`click`, function () {
 //activate the question two next button
 const questionTwoNextBtnActivate = function () {
   if (petMale.checked === true || petFemale.checked === true) {
-    if (petName.value.length > 1) {
+    if (petNameField.value.length > 1) {
       questionTwoNextBtn.classList.remove(`greyed-out`);
     }
   }
@@ -247,6 +274,9 @@ selectPetColourUl.onclick = function (event) {
     .classList.remove("greyed-out");
 };
 
+//upload piture button
+const uploadPetPicture = document.getElementById(`buttonForUploadPicCollapse`);
+
 //get the third question next button and add click event
 const nextBtnThree = document
   .querySelector(".next-btn-three")
@@ -258,22 +288,67 @@ const nextBtnThree = document
   });
 
 //question 4 - pet exemptions
+
+//accivate the next page button on keyup of number
+document
+  .getElementById(`numberField`)
+  .addEventListener(`keyup`, activateCustomerDetailsBtn);
+
+//get the next page button
+const nextPageCustomerDetailsBtn = document.querySelector(".next-page-btn");
+
+function activateCustomerDetailsBtn() {
+  nextPageCustomerDetailsBtn.classList.remove("greyed-out");
+}
+
 //desexed questions
 const desexedRadioYes = document
   .getElementById("desexedYes")
-  .addEventListener(`click`, hideIsPetUsedForBreeding);
+  .addEventListener(`click`, yesBeenDesexed);
 const desexedRadioNo = document
   .getElementById("desexedNo")
-  .addEventListener(`click`, showIsPetUsedForBreeding);
+  .addEventListener(`click`, noNotExempt);
+const desexedRadioNoButExempt = document
+  .getElementById("desexedNoButExempt")
+  .addEventListener(`click`, NoButPetExempt);
 
-function showIsPetUsedForBreeding() {
+document.getElementById("usedForBreeding").ariaExpanded === "false";
+
+function noNotExempt() {
+  document.getElementById("uploadDesexedFile").classList.add("hidden");
+  document.getElementById("uploadExemptFile").classList.add("hidden");
+  if (document.getElementById("usedForBreeding").ariaExpanded === "true") {
+    document.getElementById("isPetUsedBreeding").classList.remove("hidden");
+  }
   if (document.getElementById("usedForBreeding").ariaExpanded === "false") {
+    document.getElementById("isPetUsedBreeding").classList.remove("hidden");
     document.getElementById("usedForBreeding").click();
+    document.getElementById("usedForBreeding").ariaExpanded === "true";
   }
 }
-function hideIsPetUsedForBreeding() {
+
+function yesBeenDesexed() {
+  document.getElementById("uploadExemptFile").classList.add("hidden");
+  document.getElementById("isPetUsedBreeding").classList.add("hidden");
   if (document.getElementById("usedForBreeding").ariaExpanded === "true") {
+    document.getElementById("uploadDesexedFile").classList.remove("hidden");
+  }
+  if (document.getElementById("usedForBreeding").ariaExpanded === "false") {
+    document.getElementById("uploadDesexedFile").classList.remove("hidden");
     document.getElementById("usedForBreeding").click();
+    document.getElementById("usedForBreeding").ariaExpanded === "true";
+  }
+}
+function NoButPetExempt() {
+  document.getElementById("uploadDesexedFile").classList.add("hidden");
+  document.getElementById("isPetUsedBreeding").classList.add("hidden");
+  if (document.getElementById("usedForBreeding").ariaExpanded === "true") {
+    document.getElementById("uploadExemptFile").classList.remove("hidden");
+  }
+  if (document.getElementById("usedForBreeding").ariaExpanded === "false") {
+    document.getElementById("uploadExemptFile").classList.remove("hidden");
+    document.getElementById("usedForBreeding").click();
+    document.getElementById("usedForBreeding").ariaExpanded === "true";
   }
 }
 
@@ -294,30 +369,60 @@ const clickbreedingRadioNo = breedingRadioNo.addEventListener(
 function showBreedingAlert() {
   if (breedingAlertToggle.ariaExpanded === "false") {
     breedingAlertToggle.click();
-    console.log(`333`);
-    breedingRadioNo;
   }
 }
 function hideBreedingAlert() {
   if (breedingAlertToggle.ariaExpanded === "true") {
     breedingAlertToggle.click();
-    console.log(`444`);
   }
 }
 
-// //date picker
-// // Data Picker Initialization
-// $(".datepicker").datepicker();
+//get microchip button to expand
+const microchipNumber = document.getElementById(`microchipNumber`);
 
-//microshiped Radio Buttons
+//gt microchip exemtion collapse
+const microchipExemption = document.getElementById(`microchipExemptionFile`);
+
+let microchipNumberExpanded = microchipNumber.ariaExpanded;
+let microchipExemptionExpanded = microchipExemption.ariaExpanded;
+
+microchipNumberExpanded = false;
+microchipExemptionExpanded = false;
+
+//microchip number field collapse
+const showMicrochipNumberField = function () {
+  if (microchipExemptionExpanded === true) {
+    console.log(`345`);
+    microchipExemption.click();
+    microchipExemptionExpanded = false;
+  }
+
+  if (microchipNumberExpanded === false) {
+    microchipNumber.click();
+    microchipNumberExpanded = true;
+    console.log(microchipNumberExpanded);
+  }
+};
+
+//microchip expemtion collapse
+const showMicrochipExemptionupload = function () {
+  if (microchipNumberExpanded === true) {
+    console.log(`910`);
+    microchipNumber.click();
+    microchipNumberExpanded = false;
+  }
+  if (microchipExemptionExpanded === false) {
+    console.log(`678`);
+    microchipExemption.click();
+    microchipExemptionExpanded = true;
+    activateCustomerDetailsBtn();
+  }
+};
+
+//microshiped Radio Buttons click events
 const microchippedYes = document
   .getElementById("microYes")
-  .addEventListener(`click`, activateCustomerDetailsBtn);
+  .addEventListener(`click`, showMicrochipNumberField);
 const microchippedNo = document
   .getElementById("microNo")
-  .addEventListener(`click`, activateCustomerDetailsBtn);
-const nextPageCustomerDetailsBtn = document.querySelector(".next-page-btn");
-
-function activateCustomerDetailsBtn() {
-  nextPageCustomerDetailsBtn.classList.remove("greyed-out");
-}
+  .addEventListener(`click`, showMicrochipExemptionupload);

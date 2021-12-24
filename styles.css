@@ -32,6 +32,13 @@ p {
   margin: 0px 5% 0px 5%;
 }
 
+.form-control,
+input[type="file"] {
+  /* background-color: #e1e2e4; */
+  border: none;
+  box-shadow: none;
+}
+
 .hidden {
   display: none;
 }
